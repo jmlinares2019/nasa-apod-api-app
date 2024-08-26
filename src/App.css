@@ -79,13 +79,21 @@ div{
 }
 
 button.read-less{
+  padding: 1rem;
   background-color: transparent;
   color: white;
   border: none;
+  /* border: 1px solid white; */
+  /* border-radius: 25px; */
   outline: none;
   margin-top: auto;
   margin-right: auto;
   cursor: pointer;
+  transition-duration: 200ms;
+}
+
+button.read-less:hover{
+  opacity: .75;
 }
 
 @media (min-width: 640px){
@@ -99,6 +107,7 @@ button.read-less{
   .sidebar-content{
     margin: unset;
   }
+
 }
 
 footer{
@@ -110,6 +119,40 @@ footer{
   justify-content: space-between;
   align-items: center;
   gap: 1rem;
+  padding: 1rem;
+}
+
+/* footer .main-info{
+  display: flex;
+  flex-direction: column;
+  gap: .2rem;
+} */
+
+footer .main-info h2.footer-pic-title{
+  font-size: 1.4rem;
+}
+
+footer .main-info h1.main-title{
+  font-size: .9rem;
+  font-weight: 200;
+}
+
+footer button.read-more{
+  padding: 1rem;
+  background-color: transparent;
+  color: white;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  transition-duration: 200ms;
+}
+
+footer button.read-more i{
+  font-size: 1.5rem;
+}
+
+footer button.read-more:hover{
+  opacity: .75;
 }
 
 /* .bgGradient{
