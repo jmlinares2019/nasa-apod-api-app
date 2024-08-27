@@ -1,17 +1,16 @@
 function Sidebar(props){
+    const { data, onHandleClick } = props
     return (
         <>  
             <div className="sidebar-wrapper">
                 <div className="bg-overlay"></div>
                 <div className="sidebar-content">
-                    <h2>The Brutal Martian Landscape</h2>
-                    {/* <div> */}
-                        <p>Description</p>
-                        <p>Consequat aute consequat nostrud laborum elit minim enim sit magna sunt nisi nulla eu ullamco. Nisi laboris magna commodo fugiat. Laborum cillum proident consectetur reprehenderit nulla amet irure deserunt excepteur do eiusmod veniam consectetur ad. Cupidatat dolor irure tempor mollit.</p>
-                    {/* </div> */}
+                    <h2 className="sidebar-title">{data?.title}</h2>
+                    <p className="sidebar-date">{data?.date}</p>
+                    <p className="sidebar-description">{data?.explanation}</p>
                     <button 
                         className="read-less"
-                        onClick={props.onHandleClick}>
+                        onClick={onHandleClick}>
                         <i className="fa-solid fa-arrow-right"></i>
                     </button>
                 </div>

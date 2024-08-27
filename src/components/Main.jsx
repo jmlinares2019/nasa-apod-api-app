@@ -1,10 +1,11 @@
-function Main(){
+function Main(props){
+    const { data } = props
     return (
         <>
             <div className="img-wrapper">
                 <img 
-                    src="img/mars.png" 
-                    alt="Mars landscape" 
+                    src={data?.hdurl} 
+                    alt={data?.title || "Astronomic Picture Of the Day"} 
                     className="bg-image"
                 />
             </div>

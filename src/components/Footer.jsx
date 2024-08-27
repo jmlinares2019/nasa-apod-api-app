@@ -1,11 +1,12 @@
 function Footer(props){
+    const { data, onHandleClick } = props;
     return (
         <>
             <footer>
                 {/* <div className="bg-gradient"></div> */}
                 <div className="main-info">
-                    <h2 className="footer-pic-title">The Brutal Martian Landscape</h2>
-                    <h1 className="main-title">APOD Project</h1>
+                    <h1 className="main-title">APOD PROJECT</h1>
+                    <h2 className="footer-pic-title">{data?.title}</h2>
                 </div>
                 <button 
                     className="read-more"

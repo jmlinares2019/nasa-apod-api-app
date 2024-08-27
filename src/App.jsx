@@ -35,12 +35,19 @@ function App() {
   return (
     <>
       <div className="App">
-        <Main />
+        {data ? <Main data={data} /> : (
+          <div className="loadingState">
+            <i className="fa-solid fa-gear"></i>
+          </div>
+        )}
         {showModal && 
-          <Sidebar onHandleClick={handleShow} />}
-        <Footer 
-          onHandleClick={handleShow}
-        />
+          <Sidebar
+            data={data} 
+            onHandleClick={handleShow} />}
+        {data && 
+        <Footer
+          data={data} 
+          onHandleClick={handleShow} />}
       </div>
     </>
   )
