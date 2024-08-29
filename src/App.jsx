@@ -8,7 +8,6 @@ import './App.css'
 
 function App() {
   const [data, setData] = useState(null);
-  const [loading, setLoading] = useState(false);
   const [showModal, setShowModal] = useState(false);
 
   function handleShow() {
@@ -18,7 +17,8 @@ function App() {
   useEffect(() => {
     async function fetchAPIData(){
       const API_KEY = 'DNhGCawYAHc4F78tMxypWtDq2ybahAuW32a8pD3O'
-      // const API_KEY = import.meta.env.NASA_API_KEY; <-- not working!!!
+      // const API_KEY = import.meta.env.NASA_API_KEY <-- not working!!!; 
+      console.log(API_KEY)
       const url = 'https://api.nasa.gov/planetary/apod' + `?api_key=${API_KEY}`;
 
       const today = (new Date()).toDateString();
@@ -53,19 +53,33 @@ function App() {
   return (
     <>
       <div className="App">
-        {data ? <Main data={data} /> : (
-          <div className="loadingState">
-            <i className="fa-solid fa-gear"></i>
-          </div>
-        )}
-        {showModal && 
-          <Sidebar
+
+        {data ? 
+          <Main 
             data={data} 
-            onHandleClick={handleShow} />}
+            showModal={showModal} 
+            onHandleClick={handleShow} 
+          />
+        : 
+          (
+            <div className="loadingState">
+            <i className="fa-duotone fa-solid fa-spinner"></i>
+            </div>
+          )
+        }
+
+        <Sidebar 
+            showModal={showModal}
+            data={data}
+            onHandleClick={handleShow}
+        />  
+
         {data && 
         <Footer
-          data={data} 
-          onHandleClick={handleShow} />}
+            data={data} 
+            onHandleClick={handleShow} 
+        />}
+
       </div>
     </>
   )
